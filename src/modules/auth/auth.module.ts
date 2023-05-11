@@ -6,7 +6,6 @@ import { AuthController } from './auth.controller';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { User } from './entities';
 import { PassportModule } from '@nestjs/passport';
-import { CommonModule } from '../common/common.module';
 
 @Module({
   controllers: [AuthController],
@@ -23,7 +22,6 @@ import { CommonModule } from '../common/common.module';
         signOptions: { expiresIn: "2h" }
       })
     }),
-    CommonModule
   ],
   exports: [
     TypeOrmModule, 

@@ -1,9 +1,8 @@
 import { Module } from '@nestjs/common';
-import { ApiService } from './api.service';
+import { ErrorCatch } from './interceptos/error-catch.interceptor';
 
 @Module({
-  controllers: [],
-  providers: [ApiService],
-  exports: [ApiService]
+    providers: [ErrorCatch],
+    exports: [ErrorCatch]
 })
 export class CommonModule {}
