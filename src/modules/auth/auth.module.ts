@@ -6,7 +6,7 @@ import { AuthController } from './auth.controller';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { User } from './entities';
 import { PassportModule } from '@nestjs/passport';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { CommonModule } from '../common/common.module';
 
 @Module({
   controllers: [AuthController],
@@ -22,7 +22,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         secret: process.env.JWT_SECRET,
         signOptions: { expiresIn: "2h" }
       })
-    })
+    }),
+    CommonModule
   ],
   exports: [
     TypeOrmModule, 
